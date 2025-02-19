@@ -12,12 +12,14 @@ class StringCalculator
       delimiter = delimiter.split('//')[1]
     end
 
+    negative_nums = []
     total = data.split(delimiter).map(&:to_i).reduce(0) do |acc, curr|
-      raise CalculatorExceptions::NegativeNumberError, curr if curr < 0
+      negative_nums.push(curr) if(curr < 0)
       acc + curr 
     end
-
-    return total
+    raise CalculatorExceptions::NegativeNumberError, negative_nums.join(', ') if negative_nums.any?
+    
+    total
   end 
 
   private
