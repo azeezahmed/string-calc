@@ -33,6 +33,7 @@ describe "String Calculator" do
 
     it "supports new line '\n' as a delimiter" do 
       expect(@calc.add('1\n2, 3')).to eq(6)
+      expect(@calc.add('1\n2, 3, 4\n7\n5')).to eq(22)
     end
   end
 end
