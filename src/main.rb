@@ -32,3 +32,11 @@ class StringCalculator
     str.split('\n').size > 2
   end
 end
+
+
+# sample executions
+# calc = StringCalculator.new
+# puts calc.add('5,3,2')
+# puts calc.add('5\n3\n2')
+# puts calc.add('//R\n5R3R2')
+# puts calc.add('//\n\n5\n3\n2')
