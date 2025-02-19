@@ -1,4 +1,7 @@
-class String_Calculator
+require_relative 'helpers/calculator_exceptions'
+
+class StringCalculator
+  include CalculatorExceptions
   def add(input_str)
     delimiter = /[,\\n]/
     data = input_str
@@ -9,7 +12,12 @@ class String_Calculator
       delimiter = delimiter.split('//')[1]
     end
 
-    data.split(delimiter).map(&:to_i).sum
+    total = data.split(delimiter).map(&:to_i).reduce(0) do |acc, curr|
+      raise CalculatorExceptions::NegativeNumberError, curr if curr < 0
+      acc + curr 
+    end
+
+    return total
   end 
 
   private

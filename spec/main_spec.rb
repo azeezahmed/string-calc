@@ -1,6 +1,6 @@
 describe "String Calculator" do
   before(:each) do
-    @calc = String_Calculator.new
+    @calc = StringCalculator.new
   end
   context "string_calculator class" do
 
@@ -30,7 +30,7 @@ describe "String Calculator" do
       expect(@calc.add('1,3,1,2,5,1,5,7,12,55,12')).to eq(104)
     end
 
-    it "supports new line '\n' as a delimiter" do 
+    it "supports new line '\/n' as a delimiter" do 
       expect(@calc.add('1\n2, 3')).to eq(6)
       expect(@calc.add('1\n2, 3, 4\n7\n5')).to eq(22)
     end
@@ -53,8 +53,8 @@ describe "String Calculator" do
 
     context "failure handling" do 
       it "throws an error if negative numbers are encountered" do 
-        expect(@calc.add('3,-5,1')).to eq('negative numbers not allowed: -5')
-        expect(@calc.add('//;\n1;-2;5')).to eq('negative numbers not allowed: -5')
+        expect {@calc.add('3,-5,1')}.to raise_error(CalculatorExceptions::NegativeNumberError)
+        expect {@calc.add('//;\n1;-2;5')}.to raise_error(CalculatorExceptions::NegativeNumberError)
       end
     end
   end

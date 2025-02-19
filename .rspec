@@ -1,2 +1,3 @@
 --require spec_helper
+--require ./src/helpers/calculator_exceptions.rb
 --require ./src/main.rb
