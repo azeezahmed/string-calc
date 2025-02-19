@@ -56,6 +56,10 @@ describe "String Calculator" do
         expect {@calc.add('3,-5,1')}.to raise_error(CalculatorExceptions::NegativeNumberError)
         expect {@calc.add('//;\n1;-2;5')}.to raise_error(CalculatorExceptions::NegativeNumberError)
       end
+
+      it "error message of negative numbers displays all the numbers comma separated" do
+        expect {@calc.add('3,-5,1,-2')}.to raise_error(CalculatorExceptions::NegativeNumberError, 'negative numbers are not allowed: -5, -2')
+      end
     end
   end
 end
