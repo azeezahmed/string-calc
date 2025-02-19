@@ -50,5 +50,12 @@ describe "String Calculator" do
     it "supports '\/n' as a dynamic delimiter represented at the beginning of string" do
       expect(@calc.add('//\n\n1\n2')).to eq(3)
     end
+
+    context "failure handling" do 
+      it "throws an error if negative numbers are encountered" do 
+        expect(@calc.add('3,-5,1')).to eq('negative numbers not allowed: -5')
+        expect(@calc.add('//;\n1;-2;5')).to eq('negative numbers not allowed: -5')
+      end
+    end
   end
 end
