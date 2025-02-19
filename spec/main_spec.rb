@@ -4,7 +4,6 @@ describe "String Calculator" do
   end
   context "string_calculator class" do
 
-
     it "implements a method add()" do
       expect(@calc).to respond_to(:add)
     end
@@ -42,6 +41,14 @@ describe "String Calculator" do
       expect(@calc.add('//;\n1;2;5')).to eq(8)
       expect(@calc.add('//,\n1,1,5')).to eq(7)
       expect(@calc.add('//K\n15K2K5')).to eq(22)
+    end
+
+    it "supports ',' as a dynamic delimiter represented at the beginning of string" do
+      expect(@calc.add('//,\n1,2')).to eq(3)
+    end
+
+    it "supports '\/n' as a dynamic delimiter represented at the beginning of string" do
+      expect(@calc.add('//\n\n1\n2')).to eq(3)
     end
   end
 end
