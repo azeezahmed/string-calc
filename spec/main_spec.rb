@@ -39,6 +39,9 @@ describe "String Calculator" do
     # after // and before a new line
     it "supports different delimiters represented at the beginning of string" do
       expect(@calc.add('//;\n1;2')).to eq(3)
+      expect(@calc.add('//;\n1;2;5')).to eq(8)
+      expect(@calc.add('//,\n1,1,5')).to eq(7)
+      expect(@calc.add('//K\n15K2K5')).to eq(22)
     end
   end
 end
