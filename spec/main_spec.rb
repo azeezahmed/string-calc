@@ -18,5 +18,9 @@ describe "String Calculator" do
     it "returns the numeric equivalent for a single number string" do 
       expect(@calc.add('5')).to eq(5)
     end
+
+    it "returns the sum of numbers that are comma separated" do
+      expect(@calc.add('2,3')).to eq(5)
+    end
   end
 end
