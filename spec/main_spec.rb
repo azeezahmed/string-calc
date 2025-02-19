@@ -19,8 +19,20 @@ describe "String Calculator" do
       expect(@calc.add('5')).to eq(5)
     end
 
-    it "returns the sum of numbers that are comma separated" do
+    it "returns the sum of 2 numbers that are comma separated" do
       expect(@calc.add('2,3')).to eq(5)
+      expect(@calc.add('10,3')).to eq(13)
+      expect(@calc.add('1,3')).to eq(4)
+    end
+
+    it "returns the sum of N numbers that are comma separated" do
+      expect(@calc.add('2,3')).to eq(5)
+      expect(@calc.add('10,4,5,3')).to eq(22)
+      expect(@calc.add('1,3,1,2,5,1,5,7,12,55,12')).to eq(104)
+    end
+
+    it "supports new line '\n' as a delimiter" do 
+      expect(@calc.add('1\n2, 3')).to eq(6)
     end
   end
 end
