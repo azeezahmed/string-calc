@@ -15,7 +15,7 @@ describe "String Calculator" do
   end 
 
   context "add()" do 
-    it "returns the numeric equivalent for a single number" do 
+    it "returns the numeric equivalent for a single number string" do 
       expect(@calc.add('5')).to eq(5)
     end
   end
